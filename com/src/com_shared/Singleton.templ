@@ -1,0 +1,23 @@
+
+#ifndef SINGLETON_TEMPL
+#define SINGLETON_TEMPL
+
+template <class T_DERIVED>
+class Singleton
+{
+public:
+	static T_DERIVED * GetInstance()
+	{
+		static T_DERIVED oInstance ;
+		return &oInstance ;
+	}
+ 
+protected:
+	Singleton(){}
+ 
+private:
+	Singleton( const Singleton& ) ;
+	Singleton& operator=( const Singleton& ) {return *this;}
+} ;
+
+#endif

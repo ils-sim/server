@@ -1,0 +1,2 @@
+pacman -S cmake mysql-connector-c++ boost
+

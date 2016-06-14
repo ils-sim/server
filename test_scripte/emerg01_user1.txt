@@ -1,0 +1,8 @@
+load
+login/testuser0.txt
+
+sleep
+5
+
+load
+emerg01/run.txt

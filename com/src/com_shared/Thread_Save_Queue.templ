@@ -1,0 +1,76 @@
+#ifndef THREAD_SAVE_QUEUE_TEMPL_
+#define THREAD_SAVE_QUEUE_TEMPL_
+
+#include <queue>
+#include <boost/thread/mutex.hpp>
+
+template <class T>
+class ThreadSaveQueue
+{
+public:
+	T front()
+	{
+		mMutex.lock();
+		T t = mQueue.front();
+		mMutex.unlock();
+		return t;
+	}
+
+	T back()
+	{
+		mMutex.lock();
+		T t = mQueue.back();
+		mMutex.unlock();
+		return t;
+	}
+
+	bool empty()
+	{
+		mMutex.lock();
+		bool e = mQueue.empty();
+		mMutex.unlock();
+		return e;
+	}
+	
+	unsigned int size()
+	{
+		mMutex.lock();
+		unsigned int size = mQueue.size();
+		mMutex.unlock();
+		return size;
+	}
+
+	void push(const T& value)
+	{
+		mMutex.lock();
+		mQueue.push(value);
+		mMutex.unlock();
+	}
+
+	void push(T&& value)
+	{
+		mMutex.lock();
+		mQueue.push(value);
+		mMutex.unlock();
+	}
+
+	void add_list(list<T> values)
+	{
+		mMutex.lock();
+		mQueue.push(values);
+		mMutex.unlock();
+	}
+
+	void pop()
+	{
+		mMutex.lock();
+		mQueue.pop();
+		mMutex.unlock();
+	}
+
+private:
+	std::queue<T> mQueue;
+	boost::mutex mMutex;
+};
+
+#endif
