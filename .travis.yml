@@ -18,7 +18,7 @@ before_install:
   - ./protocol/install_protobuf.sh
 
 script:
-  - scripts/build_server.sh
+  - ./scripts/build_server.sh
 
 after_success:
-  - scripts/do_cppcheck.sh
+  - ./scripts/do_cppcheck.sh
