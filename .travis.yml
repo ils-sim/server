@@ -14,7 +14,6 @@ cache:
 
 before_install:
   - ./protocol/install_protobuf.sh
-  - ./build.sh
 
 script:
   - scripts/build_server.sh
