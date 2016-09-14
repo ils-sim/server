@@ -17,6 +17,7 @@ cache:
 
 before_install:
   - ./protocol/install_protobuf.sh
+  - ./scripts/install_cppcheck.sh
 
 script:
   - ./scripts/build_server.sh
