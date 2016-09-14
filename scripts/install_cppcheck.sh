@@ -1,7 +1,7 @@
 #/bin/bash
 set -ex
 
-if [ ! -d "$HOME/cppcheck" ]; then
+if [ ! -e "$HOME/cppcheck/cppcheck" ]; then
 	wget https://github.com/danmar/cppcheck/archive/1.75.zip
 	unzip 1.75.zip
 	cd cppcheck-1.75/
