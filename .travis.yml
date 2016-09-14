@@ -13,6 +13,7 @@ addons:
 cache:
   directories:
     - $HOME/protobuf
+    - $HOME/cppcheck
 
 before_install:
   - ./protocol/install_protobuf.sh
