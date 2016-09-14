@@ -19,6 +19,4 @@ before_install:
 
 script:
   - ./scripts/build_server.sh
-
-after_success:
   - ./scripts/do_cppcheck.sh
