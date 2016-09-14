@@ -31,7 +31,7 @@ public:
 		TXPrio = 3,
 	};
 
-	Task(TaskPriority prio, string TaskName);
+	Task(TaskPriority prio, const string & TaskName);
 
 	virtual void run() = 0;
 

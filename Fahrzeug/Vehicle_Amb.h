@@ -22,7 +22,7 @@
 class Vehicle_Ambulance : public Abstract_Vehicle
 {
 public:
-	Vehicle_Ambulance(int Id, string Callsign, Point StationPosition);
+	Vehicle_Ambulance(const int Id, const string & Callsign, const Point & StationPosition);
 
 	virtual void isStatusNichtEinsatzbereit();
 	virtual void isStatusEinsatzbereit();
