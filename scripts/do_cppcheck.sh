@@ -1,5 +1,7 @@
 #/bin/bash
-set -e
+set -ex
+
+cppcheck --version
 
 cppcheck --enable=all --suppress=missingIncludeSystem --inconclusive Einsatz Fahrzeug Sync com \
 -ibuild \
