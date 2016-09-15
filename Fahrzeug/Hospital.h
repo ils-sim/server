@@ -22,7 +22,7 @@
 class Hospital
 {
 public:
-	Hospital(uint32_t id, string name, Point position);
+	Hospital(uint32_t id, const string & name, const Point & position);
 
 	uint32_t getId() const;
 	string getName() const;

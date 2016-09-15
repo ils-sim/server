@@ -22,7 +22,7 @@
 class Route : public list<Position>
 {
 public:
-	Route(Position start, Point end, double speed);
+	Route(const Position & start, const Point & end, const double speed);
 
 	//list<Position>::const_iterator begin() const;
 	//list<Position>::const_iterator end() const;
@@ -35,10 +35,10 @@ private:
 	//list<Position> mPositionList;
 	double mTotalDistance;
 
-	bool parse_server(const string & data, double speed);
+	bool parse_server(const string & data, const double speed);
 	void FilterRoute();
 	void CalculateDistance();
-	static Position ExportPoint(const string & data, const Position & lastPoint, double speed);
+	static Position ExportPoint(const string & data, const Position & lastPoint, const double speed);
 };
 
 //void removeDoubleElems(list<CarWay> & liste);
