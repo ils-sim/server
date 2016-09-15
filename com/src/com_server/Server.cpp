@@ -44,7 +44,7 @@ Server::Server(boost::asio::io_service & io_service, const boost::asio::ip::tcp:
 	gServer = this;
 }
 
-//cppcheck-suppress unusedFunction
+//cppcheck -suppress unusedFunction
 std::list<boost::shared_ptr<Client_Connection>> Server::GetConnectedClients() const
 {
 	return mConnections;

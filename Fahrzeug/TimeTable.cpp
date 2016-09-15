@@ -45,7 +45,7 @@ TimeEntry::TimeEntry(boost::posix_time::time_duration start, boost::posix_time::
 
 }
 
-TimeEntry::TimeEntry(int basis, string start, string end)
+TimeEntry::TimeEntry(const int basis, const string & start, const string & end)
 {
 	mStart = MySQLTimeToTime_t(start) + boost::posix_time::seconds(basis);
 	mEnd = MySQLTimeToTime_t(end) + boost::posix_time::seconds(basis);

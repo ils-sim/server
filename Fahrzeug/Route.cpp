@@ -33,7 +33,7 @@ using namespace std;
 //const static string ROUTE_SERVER = "localhost";
 const static string ROUTE_SERVER = "yournavigation.org";
 
-Route::Route(Position start, Point end, double speed)
+Route::Route(const Position & start, const Point & end, const double speed)
 	: mTotalDistance(0)
 {
 	push_back(start);
@@ -79,7 +79,7 @@ void Route::debug() const
 	}
 }
 
-bool Route::parse_server(const string & data, double speed)
+bool Route::parse_server(const string & data, const double speed)
 {
 	stringstream workdata;
 	workdata << data;
@@ -148,7 +148,7 @@ void Route::CalculateDistance()
 	}
 }
 
-Position Route::ExportPoint(const string & data, const Position & lastPoint, double speed)
+Position Route::ExportPoint(const string & data, const Position & lastPoint, const double speed)
 {
 	std::stringstream exported;
 	double Lat = 0.0;

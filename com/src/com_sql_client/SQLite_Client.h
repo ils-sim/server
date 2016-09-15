@@ -36,7 +36,7 @@ private:
 class SQLite_Result : public SQL_Result
 {
 public:
-	explicit SQLite_Result(CppSQLite3Query results);
+	explicit SQLite_Result(const CppSQLite3Query & results);
 
 	virtual bool next();
 

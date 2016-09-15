@@ -31,15 +31,15 @@ using namespace std;
 #include "Log.h"
 
 Log::Log()
+	: mLogSetting(LogMessage), mEcho(true)
 {
-	mLogSetting = LogMessage;
-	mEcho = true;
 }
 
 Log::~Log()
 {
 }
 
+//cppcheck-suppress unusedFunction
 void Log::SetFileName(const string & FileName)
 {
 	mFileName = FileName;
@@ -74,11 +74,13 @@ void Log::ChangeSetting(const LogSetting newSetting)
 	mLogSetting = newSetting;
 }
 
+//cppcheck-suppress unusedFunction
 void Log::EchoToConsole(const bool echo)
 {
 	mEcho = echo;
 }
 
+//cppcheck-suppress unusedFunction
 void Log::WritePanic(const string & Msg)
 {
 	if(mLogSetting >= LogPanic)

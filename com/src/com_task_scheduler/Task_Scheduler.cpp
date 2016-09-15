@@ -33,7 +33,7 @@ using namespace std;
 #include "com_shared/Thread_Save_Queue.templ"
 #include "Task_Scheduler.h"
 
-Task::Task(TaskPriority prio, string TaskName)
+Task::Task(TaskPriority prio, const string & TaskName)
 	: mPriority(prio), mTaskName(TaskName)
 {
 	setNextRuntime(boost::posix_time::microsec_clock::universal_time());

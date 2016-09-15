@@ -36,7 +36,7 @@ using namespace std;
 #include "Database.h"
 
 
-Hospital::Hospital(uint32_t id, string name, Point position)
+Hospital::Hospital(uint32_t id, const string & name, const Point & position)
 	: mId(id), mName(name), mPosition(position)
 {
 
