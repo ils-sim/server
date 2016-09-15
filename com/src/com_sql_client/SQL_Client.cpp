@@ -45,7 +45,7 @@ SQL_Client::~SQL_Client()
 }
 
 
-SQL_Client::SQL_Client(const string & database)
+SQL_Client::SQL_Client(string database)
 	: mDatabase(database)
 {
 
@@ -56,7 +56,7 @@ string SQL_Client::getDatabse() const
 	return mDatabase;
 }
 
-boost::shared_ptr<SQL_Client> Generate_SQL_Client(const string & database)
+boost::shared_ptr<SQL_Client> Generate_SQL_Client(string database)
 {
 	string engine = config::GetInstance()->getDatabaseEngine();
 	if(engine == "SQLite")

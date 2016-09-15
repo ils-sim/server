@@ -46,9 +46,10 @@ using boost::asio::ip::tcp;
 #define CAR_SPEED	(70.0 / 3.6) // in m/s
 
 
-Abstract_Vehicle::Abstract_Vehicle(uint32_t Id, const string & Callsign, const Point & StationPosition, VehicleType type)
-	: Task(RunnerPrio, Callsign), mId(Id), mCallsign(Callsign), mStationPoint(StationPosition), mCarType(type), mTimeTables(mId), mCurrentStatus(NichtEinsatzbereit)
+Abstract_Vehicle::Abstract_Vehicle(uint32_t Id, string Callsign, Point StationPosition, VehicleType type)
+	: Task(RunnerPrio, Callsign), mId(Id), mCallsign(Callsign), mStationPoint(StationPosition), mCarType(type), mTimeTables(mId)
 {
+	mCurrentStatus = NichtEinsatzbereit;
 	mEmergencyId = 0;
 	mIsBlue = false;
 	mPatientId = 0;
@@ -62,7 +63,6 @@ Abstract_Vehicle::Abstract_Vehicle(uint32_t Id, const string & Callsign, const P
 	}
 }
 
-//cppcheck-suppress unusedFunction
 void Abstract_Vehicle::AddToEmergency(uint64_t emergency, bool isBlue, Point position)
 {
 	if(mCurrentStatus != NichtEinsatzbereit)
@@ -79,7 +79,6 @@ void Abstract_Vehicle::AddToEmergency(uint64_t emergency, bool isBlue, Point pos
 	}
 }
 
-//cppcheck-suppress unusedFunction
 void Abstract_Vehicle::RemoveFromEmergency()
 {
 	mEmergencyId = 0;
@@ -88,7 +87,6 @@ void Abstract_Vehicle::RemoveFromEmergency()
 	setNextRuntime(mTimeTables.getNextActivity());
 }
 
-//cppcheck-suppress unusedFunction
 int Abstract_Vehicle::GetId() const
 {
 	return mId;
@@ -111,13 +109,11 @@ VehicleType Abstract_Vehicle::GetType() const
 	return mCarType;
 }
 
-//cppcheck-suppress unusedFunction
 VehicleStatus Abstract_Vehicle::GetStatus() const
 {
 	return mCurrentStatus;
 }
 
-//cppcheck-suppress unusedFunction
 void Abstract_Vehicle::PrintCar() const
 {
 	cout << "Car             : " << mId << endl;

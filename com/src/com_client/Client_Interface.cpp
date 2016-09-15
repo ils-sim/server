@@ -49,8 +49,8 @@ Client_Interface * Client_Observer::GetInterface()
 
 
 Client_Interface::Client_Interface()
-	: isConnected(NotConnected)
 {
+	isConnected = NotConnected;
 }
 
 void Client_Interface::Attache(Client_Observer * observer)

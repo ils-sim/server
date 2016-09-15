@@ -38,7 +38,7 @@ using namespace std;
 #include "Hospital.h"
 
 
-Vehicle_Ambulance::Vehicle_Ambulance(const int Id, const string & Callsign, const Point & StationPosition)
+Vehicle_Ambulance::Vehicle_Ambulance(int Id, string Callsign, Point StationPosition)
 	: Abstract_Vehicle(Id, Callsign, StationPosition, RTW)
 {
 
