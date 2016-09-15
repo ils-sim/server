@@ -22,7 +22,7 @@
 class TimeEntry
 {
 public:
-	TimeEntry(int basis, string start, string end);
+	TimeEntry(const int basis, const string & start, const string & end);
 	TimeEntry(boost::posix_time::time_duration start, boost::posix_time::time_duration end);
 
 	boost::posix_time::time_duration getStart() const;

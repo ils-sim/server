@@ -22,7 +22,7 @@
 class MySQL_Client : public SQL_Client
 {
 public:
-	explicit MySQL_Client(string Database);
+	explicit MySQL_Client(const string & Database);
 	
 	virtual bool SendQueryNoReturn(const string & Query);
 	virtual boost::shared_ptr<SQL_Result> SendQueryReturn(const string & Query);

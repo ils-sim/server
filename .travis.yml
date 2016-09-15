@@ -1,0 +1,24 @@
+sudo: required
+dist: trusty
+language: cpp
+
+addons:
+  apt:
+    packages:
+    - cmake
+    - cppcheck
+    - libboost-all-dev
+    - libmysqlcppconn-dev
+
+cache:
+  directories:
+    - $HOME/protobuf
+    - $HOME/cppcheck
+
+before_install:
+  - ./protocol/install_protobuf.sh
+  - ./scripts/install_cppcheck.sh
+
+script:
+  - ./scripts/build_server.sh
+  - ./scripts/do_cppcheck.sh

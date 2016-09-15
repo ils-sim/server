@@ -124,6 +124,7 @@ VehicleStatus VehicleMapper::getLastStatus(uint32_t id)
 }
 
 
+//cppcheck-suppress unusedFunction
 Point EmergencyMapper::GetEmergencyPoint(uint64_t idEmergency)
 {
 	boost::shared_ptr<SQL_Client> client = Generate_SQL_Client("online_ilssim");

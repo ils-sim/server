@@ -89,4 +89,5 @@ desktop.ini
 .kateproject.d
 doxy/
 cppcheck-result.xml
+cppcheck-result.txt
 

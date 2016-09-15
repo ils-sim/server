@@ -44,7 +44,7 @@ using namespace std;
 #define MYSQL_USER		"gameuser"
 #define MYSQL_PASS		"d4c3m8bXNXRrJzDK"
 
-MySQL_Client::MySQL_Client(string Database)
+MySQL_Client::MySQL_Client(const string & Database)
 	: SQL_Client(Database), mServer(config::GetInstance()->getDatabseMySQLServer()), mUser(config::GetInstance()->getDatabseMySQLUser()),
 	mPassword(config::GetInstance()->getDatabseMySQLPassword()), mDatabase(Database)
 {
