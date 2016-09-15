@@ -92,7 +92,6 @@ string CLI_Command::GetString(const string & name, std::istream & stream, const 
 	return value;
 }
 
-//cppcheck-suppress unusedFunction
 bool CLI_Command::GetBool(const string & name, std::istream & stream, const bool default_)
 {
 	bool value;

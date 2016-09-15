@@ -23,7 +23,7 @@ class Abstract_Vehicle : public Task
 {
 public:
 
-	Abstract_Vehicle(uint32_t Id, const string & Callsign, const Point & StationPosition, VehicleType type);
+	Abstract_Vehicle(uint32_t Id, string Callsign, Point StationPosition, VehicleType type);
 
 	void AddToEmergency(uint64_t emergency, bool isBlue, Point position);
 	void RemoveFromEmergency();

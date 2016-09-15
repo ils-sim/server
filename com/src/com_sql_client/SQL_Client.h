@@ -37,7 +37,7 @@ public:
 class SQL_Client
 {
 public:
-	explicit SQL_Client(const string & database);
+	explicit SQL_Client(string database);
 
 	virtual bool SendQueryNoReturn(const string & Query) = 0;
 	virtual boost::shared_ptr<SQL_Result> SendQueryReturn(const string & Query) = 0;
@@ -50,7 +50,7 @@ private:
 	string mDatabase;
 };
 
-boost::shared_ptr<SQL_Client> Generate_SQL_Client(const string & database);
+boost::shared_ptr<SQL_Client> Generate_SQL_Client(string database);
 
 /********************************************************************************************/
 

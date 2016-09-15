@@ -84,7 +84,7 @@ SQLite_Client::~SQLite_Client()
 }
 
 
-SQLite_Result::SQLite_Result(const CppSQLite3Query & results)
+SQLite_Result::SQLite_Result(CppSQLite3Query results)
 	: mResults(results), mFirstNext(true)
 {
 }

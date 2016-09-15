@@ -27,32 +27,27 @@ using namespace std;
 #include "config.h"
 
 
-//cppcheck-suppress unusedFunction
 bool config::readConfig(const string & filename, const string & sys)
 {
 	mSystem = sys;
 	return reader.reload(filename);
 }
 
-//cppcheck-suppress unusedFunction
 int config::getTCPPort() const
 {
 	return reader.getInteger("General", "TCP_Port", 1244);
 }
 
-//cppcheck-suppress unusedFunction
 string config::getLogSetting() const
 {
 	return reader.getString(mSystem, "Log_Setting", "Debug");
 }
 
-//cppcheck-suppress unusedFunction
 bool config::getLogEchoToConsole() const
 {
 	return reader.getBoolean(mSystem, "Log_Echo", true);
 }
 
-//cppcheck-suppress unusedFunction
 string config::getLogfile() const
 {
 	return reader.getString(mSystem, "Log_File", mSystem + ".log");

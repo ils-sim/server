@@ -1,5 +1,8 @@
 #/bin/bash
-set -ex
+
+LD_LIBRARY_PATH="/usr/local/lib"
+
+set -e
 
 function cmake_build {
 	mkdir -p build
