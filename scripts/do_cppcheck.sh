@@ -1,9 +1,9 @@
 #/bin/bash
 set -ex
 
-$HOME/cppcheck/cppcheck --version
+$HOME/cppcheck/bin/cppcheck --version
 
-$HOME/cppcheck/cppcheck --enable=all --suppress=missingIncludeSystem --inconclusive Einsatz Fahrzeug Sync com \
+$HOME/cppcheck/bin/cppcheck --enable=all --suppress=missingIncludeSystem --inconclusive Einsatz Fahrzeug Sync com \
 -ibuild \
 -icom/build \
 -icom/test/com_convert_test \
