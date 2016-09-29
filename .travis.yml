@@ -1,7 +1,6 @@
 sudo: required
 dist: trusty
 language: cpp
-
 addons:
   apt:
     packages:
@@ -9,16 +8,17 @@ addons:
     - cppcheck
     - libboost-all-dev
     - libmysqlcppconn-dev
-
 cache:
   directories:
-    - $HOME/protobuf
-    - $HOME/cppcheck
-
+  - $HOME/protobuf
+  - $HOME/cppcheck
 before_install:
-  - ./protocol/install_protobuf.sh
-  - ./scripts/install_cppcheck.sh
-
+- ./protocol/install_protobuf.sh
+- ./scripts/install_cppcheck.sh
 script:
-  - ./scripts/build_server.sh
-  - ./scripts/do_cppcheck.sh
+- ./scripts/build_server.sh
+- ./scripts/do_cppcheck.sh
+notifications:
+  hipchat:
+    rooms:
+      secure: jdpqKhmmisIMSd4ihuYXmnE/YfSMXVVJfTouowbZMvljUpUOGg1YP+2lL2nVuF4L+xhu1FsrFhTbj8QZCjg5O3ZexQbfJSBx6cAHLTB4RM8afa/cak73gnWKfxoaE8t+A2N8sNChHbo+pEPNsbxlWSiBJG00Wr+W18s9NFUZjVT9QXXmmb6Zo+AnW4Lf3ibaMoE/w90hS09KnKS62vV5D+OV+Mnok08YMIsN5ElvJkzN6A6lkVw0esfL37svWZrpSPWLJwfyxImbrRVG37GY3NSFxOoglmAak95D8jQtdsFz4pXVLIZdGdgYf0/0sTu0VYb8tYpux5hx2N0cR0K5JTfGLyA3Xkfq4D7fpASSsSim7Sv3Q+y0gX2b66pdI6lA8yCUtLTM5xU7MvKPJWHXQiQGhmGDacq+wn+84XDKAR7WydrhdaGgahBaRIcgIF0rplviXMm8/wDo16sPYBjRO8WE5Pz/nmnBOU9FOMIO9N75fV+M4M/hjVExfxgv/ky41kTrtULlMEOydFZQ6fLPlHTUsICfBj4D3FkSVLbmotlx/aH3/81ySEY26xqVqFQVXX7D9WTtJTz85OsfnaXD0l4KVaAjw2UmMbhlRWdRSvrT4nuJNz35MByWp1NHdRZN51FMcf66p0A0vcPagkHsNEtseveT4+/uh77k29aoo1w=
