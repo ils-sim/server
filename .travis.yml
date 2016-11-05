@@ -39,4 +39,5 @@ before_install:
   - docker pull ilssim/main
 
 script:
-  - docker run -t -i -v $PWD:/src -w /src ilssim/main /bin/bash scripts/build_server.sh && /bin/bash scripts/do_cppcheck.sh
+  - docker run -t -i -v $PWD:/src -w /src ilssim/main /bin/bash scripts/build_server.sh
+  - docker run -t -i -v $PWD:/src -w /src ilssim/main /bin/bash scripts/do_cppcheck.sh
