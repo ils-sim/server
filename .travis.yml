@@ -1,24 +1,36 @@
+#sudo: required
+#dist: trusty
+#language: cpp
+
+#addons:
+#  apt:
+#    packages:
+#    - cmake
+#    - cppcheck
+#    - libboost-all-dev
+#    - libmysqlcppconn-dev
+#
+#cache:
+#  directories:
+#    - $HOME/protobuf
+#    - $HOME/cppcheck
+#
+#before_install:
+#  - ./protocol/install_protobuf.sh
+#  - ./scripts/install_cppcheck.sh
+#
+#script:
+#  - ./scripts/build_server.sh
+#  - ./scripts/do_cppcheck.sh
+
 sudo: required
-dist: trusty
 language: cpp
 
-addons:
-  apt:
-    packages:
-    - cmake
-    - cppcheck
-    - libboost-all-dev
-    - libmysqlcppconn-dev
-
-cache:
-  directories:
-    - $HOME/protobuf
-    - $HOME/cppcheck
+services:
+  - docker
 
 before_install:
-  - ./protocol/install_protobuf.sh
-  - ./scripts/install_cppcheck.sh
+  - docker pull ilssim/main
 
 script:
-  - ./scripts/build_server.sh
-  - ./scripts/do_cppcheck.sh
+  - docker run -t -i -v $PWD:/src -w /src ilssim/main /bin/bash scripts/build_server.sh && /bin/bash scripts/do_cppcheck.sh
