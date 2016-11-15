@@ -136,6 +136,12 @@ public:
 	{       
 		boost::shared_ptr<Vehicle_Update> p(new Vehicle_Update);
 		p->IdVehicle = GetInt("IdVehicle", stream);
+		p->Status = (Vehicle_Update::VehicleStatus)GetInt("Status", stream);
+		p->DestinationLatitude = GetDouble("DestinationLatitude", stream);
+		p->DestinationLongitude = GetDouble("DestinationLongitude", stream);
+		p->IdEmergency = GetInt("IdEmergency", stream);
+		p->IdPatient = GetInt("IdPatient", stream);
+		p->BlueLight = GetBool("BlueLight", stream);
 		pClient->Send(p);
 	}
 };

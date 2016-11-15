@@ -194,6 +194,12 @@ boost::shared_ptr<Package> Package_Converter::Protocol2Package(Protocol protocol
 			pPackage.reset(new Vehicle_Update);
 			boost::shared_ptr<Vehicle_Update> obj_ = boost::dynamic_pointer_cast<Vehicle_Update>(pPackage);
 			obj_->IdVehicle = update.id_vehicle();
+			obj_->Status = (Vehicle_Update::VehicleStatus)update.status();
+			obj_->DestinationLatitude = update.destination_latitude();
+			obj_->DestinationLongitude = update.destination_longitude();
+			obj_->IdEmergency = update.id_emerg();
+			obj_->IdPatient = update.id_patient();
+			obj_->BlueLight = update.blue_light();
 		}
 		break;
 	case Protocol_Type_VEHICLE_POSITION:
@@ -436,6 +442,12 @@ Protocol Package_Converter::Package2Protocol(boost::shared_ptr<Package> pPackage
 			VehicleUpdate * obj = protocol.mutable_vehicle_update();
 			boost::shared_ptr<Vehicle_Update> obj_ = boost::dynamic_pointer_cast<Vehicle_Update>(pPackage);
 			obj->set_id_vehicle(obj_->IdVehicle);
+			obj->set_status((VehicleUpdate_Status)obj_->Status);
+			obj->set_destination_latitude(obj_->DestinationLatitude);
+			obj->set_destination_longitude(obj_->DestinationLongitude);
+			obj->set_id_emerg(obj_->IdEmergency);
+			obj->set_id_patient(obj_->IdPatient);
+			obj->set_blue_light(obj_->BlueLight);
 		}
 		break;
 	case Package::VEHICLE_POSITION:

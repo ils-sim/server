@@ -153,6 +153,12 @@ void Abstract_Vehicle::UpdateStatus()
 	// send to Sync server!
 	boost::shared_ptr<Vehicle_Update> update(new Vehicle_Update());
 	update->IdVehicle = mId;
+	update->Status = (Vehicle_Update::VehicleStatus)mCurrentStatus;
+	update->DestinationLatitude = mGoalPosition.GetLat();
+	update->DestinationLongitude = mGoalPosition.GetLong();
+	update->IdEmergency = mEmergencyId;
+	update->IdPatient = mPatientId;
+	update->BlueLight = mIsBlue;
 	SendPackage(update);
 }
 

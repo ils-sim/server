@@ -69,13 +69,70 @@ public:
 class Vehicle_Update : public Package
 {
 public:
-	Vehicle_Update() : Package(Package::VEHICLE_UPDATE), IdVehicle(0) {}
+	enum VehicleStatus
+	{
+		NOT_USED,
+		NOT_OPERATIONAL,
+		OPERATIONAL,
+		EMERGENCY_ACCEPTED,
+		EMERGENCY_ARRIVED,
+		EMERGENCY_DEPARTED,
+		DESTINATION_ARRIVED,
+		DESTINATION_DEPARTED,
+		DEPARTMENT_ARRIVED,
+		VEHICLE_OCCUPY,
+		PATIENT_FOUND,
+	};
+	
+	Vehicle_Update() : Package(Package::VEHICLE_UPDATE), IdVehicle(0), Status(NOT_USED), DestinationLatitude(0.0), DestinationLongitude(0.0), IdEmergency(0), IdPatient(0), BlueLight(false) {}
 	uint32_t IdVehicle;
+	VehicleStatus Status;
+	double DestinationLatitude;
+	double DestinationLongitude;
+	uint32_t IdEmergency;
+	uint32_t IdPatient;
+	bool BlueLight;
 
 	virtual string Package2String() const
 	{
 		return "Type: " + Type2String(GetType()) + ", " +
-			"IdVehicle: " + TToString(IdVehicle);
+			"IdVehicle: " + TToString(IdVehicle) + ", " +
+			"Status: " + VehicleStatus2String(Status) + ", " +
+			"DestinationLatitude: " + TToString(DestinationLatitude) + ", " +
+			"DestinationLongitude: " + TToString(DestinationLongitude) + ", " +
+			"IdEmergency: " + TToString(IdEmergency) + ", " +
+			"IdPatient: " + TToString(IdPatient) + ", " + 
+			"BlueLight: " + TToString(BlueLight);
+	}
+	
+	static string VehicleStatus2String(VehicleStatus status)
+	{
+		switch(status)
+		{
+			case NOT_USED:
+				return "NOT_USED";
+			case NOT_OPERATIONAL:
+				return "NOT_OPERATIONAL";
+			case OPERATIONAL:
+				return "OPERATIONAL";
+			case EMERGENCY_ACCEPTED:
+				return "EMERGENCY_ACCEPTED";
+			case EMERGENCY_ARRIVED:
+				return "EMERGENCY_ARRIVED";
+			case EMERGENCY_DEPARTED:
+				return "EMERGENCY_DEPARTED";
+			case DESTINATION_ARRIVED:
+				return "DESTINATION_ARRIVED";
+			case DESTINATION_DEPARTED:
+				return "DESTINATION_DEPARTED";
+			case DEPARTMENT_ARRIVED:
+				return "DEPARTMENT_ARRIVED";
+			case VEHICLE_OCCUPY:
+				return "VEHICLE_OCCUPY";
+			case PATIENT_FOUND:
+				return "PATIENT_FOUND";
+		}
+		return "";
 	}
 };
 
