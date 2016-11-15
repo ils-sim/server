@@ -72,7 +72,7 @@ int main(int argc, char ** argv)
 	{
 		boost::asio::io_service io_service;
 		tcp::resolver resolver(io_service);
-		tcp::resolver::query query("148.251.206.227", "1244");
+		tcp::resolver::query query("127.0.0.1", "1244");
 		tcp::resolver::iterator iterator = resolver.resolve(query);
 
 

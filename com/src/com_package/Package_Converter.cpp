@@ -442,7 +442,7 @@ Protocol Package_Converter::Package2Protocol(boost::shared_ptr<Package> pPackage
 			VehicleUpdate * obj = protocol.mutable_vehicle_update();
 			boost::shared_ptr<Vehicle_Update> obj_ = boost::dynamic_pointer_cast<Vehicle_Update>(pPackage);
 			obj->set_id_vehicle(obj_->IdVehicle);
-			obj->set_status((VehicleUpdate_Status)obj_->Status);
+			obj->set_status((VehicleUpdate_VehicleStatus)obj_->Status);
 			obj->set_destination_latitude(obj_->DestinationLatitude);
 			obj->set_destination_longitude(obj_->DestinationLongitude);
 			obj->set_id_emerg(obj_->IdEmergency);
