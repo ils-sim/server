@@ -162,6 +162,7 @@ void Abstract_Vehicle::UpdateStatus()
 	SendPackage(update);
 }
 
+//cppcheck-suppress unusedFunction
 void Abstract_Vehicle::run()
 {
 	Log::GetInstance()->WriteDebug("Abstract_Vehicle::run: " + TToString(mId));

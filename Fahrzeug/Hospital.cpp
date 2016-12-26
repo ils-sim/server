@@ -48,6 +48,7 @@ uint32_t Hospital::getId() const
 	return mId;
 }
 
+//cppcheck-suppress unusedFunction
 string Hospital::getName() const
 {
 	return mName;

@@ -39,6 +39,7 @@ Echo_Observer::Echo_Observer(Server_Interface * interface)
 {
 }
 
+//cppcheck-suppress unusedFunction
 bool Echo_Observer::Received_Package(Client & client, boost::shared_ptr<Package> pPackage)
 {
 	Log::GetInstance()->WriteMessage("Observer::Received_Package");
