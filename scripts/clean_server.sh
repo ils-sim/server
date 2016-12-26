@@ -1,8 +1,8 @@
 #/bin/bash
 set -ex
 
-rm -rf protocol/cpp_out
-rm -rf protocol/csharp_out
+cd common
+./scripts/clean_server.sh
+cd ..
 
-rm -rf com/build
 rm -rf build

@@ -5,15 +5,12 @@ function cmake_build {
 	mkdir -p build
 	cd build
 	cmake -G "Unix Makefiles" ..
-	make
+	make -j`grep -c ^processor /proc/cpuinfo`
 	cd ..
 }
 
-cd protocol
+cd common/protocol
 ./build.sh
 
-cd ../com
-cmake_build
-
-cd ..
+cd ../..
 cmake_build

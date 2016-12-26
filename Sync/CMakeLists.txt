@@ -9,4 +9,4 @@ SET(_LIBS ${_LIBS} "protobuf")
 SET(_LIBS ${_LIBS} "protoc")
 SET(_LIBS ${_LIBS} "boost_system")
 
-TARGET_LINK_LIBRARIES(Sync com ${_LIBS} Threads::Threads)
+TARGET_LINK_LIBRARIES(Sync common ${_LIBS} Threads::Threads)
